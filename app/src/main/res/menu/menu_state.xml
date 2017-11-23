@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="HardcodedText">
+
+    <item
+        android:id="@+id/stateNormal"
+        android:title="正常数据视图" />
+
+    <item
+        android:id="@+id/stateLoading"
+        android:title="加载中视图" />
+
+    <item
+        android:id="@+id/stateEmpty"
+        android:title="空数据视图" />
+
+    <item
+        android:id="@+id/stateNetError"
+        android:title="无网络视图" />
+
+    <item
+        android:id="@+id/stateError"
+        android:title="加载出错视图" />
+</menu>
