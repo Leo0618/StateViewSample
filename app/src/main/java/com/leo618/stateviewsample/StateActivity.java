@@ -59,19 +59,19 @@ public class StateActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.stateNormal:
+            case R.id.stateNormal://显示数据视图
                 mStateViewHelper.stateNormal();
                 break;
-            case R.id.stateLoading:
+            case R.id.stateLoading://显示加载中视图
                 mStateViewHelper.stateLoading();
                 break;
-            case R.id.stateEmpty:
+            case R.id.stateEmpty://显示空数据视图
                 mStateViewHelper.stateEmpty();
                 break;
-            case R.id.stateNetError:
+            case R.id.stateNetError://显示网络错误视图
                 mStateViewHelper.stateNetError();
                 break;
-            case R.id.stateError:
+            case R.id.stateError://显示加载错误视图
                 mStateViewHelper.stateError();
                 break;
         }
