@@ -1,5 +1,5 @@
-# StateViewSample #
-几种状态视图显示帮助类，包含如下视图控制:
+# StateView #
+几种状态视图显示工具，包含如下视图控制:
 
 
 - 正常数据视图
@@ -15,7 +15,7 @@
 # How to Use #
 
 
-1. 添加依赖或者下周库include
+1. 添加依赖或者下载库include
 
 		compile 'com.leo618:StateView:0.0.1'
 
@@ -23,7 +23,7 @@
 		implementation 'com.leo618:StateView:0.0.1'
 		
 
-2. (可选) 建议在Application的静态代码块中设置视图创建管理器，此处设置的视图将作为全局视图，不设置使用默认。
+2. (可选) 建议在Application的静态代码块中设置视图创建管理器，此处设置的视图将作为全局视图，亦可在代码中调用方法进行设置当前页面所需的视图，不设置使用默认。
 
 		public class MyApplication extends Application {
 
@@ -52,7 +52,7 @@
 		    }
 		}
 
-3. 再需要使用的页面对应创建Helper实例并调用相应方法，demo可查看[StateActivity](https://github.com/Leo0618/StateViewSample/blob/master/app/src/main/java/com/leo618/stateviewsample/StateActivity.java)
+3. 在需要使用的页面对应创建Helper实例并调用相应方法，demo可查看[StateActivity](https://github.com/Leo0618/StateViewSample/blob/master/app/src/main/java/com/leo618/stateviewsample/StateActivity.java)
 
 		switch (item.getItemId()) {
             case R.id.stateNormal://显示数据视图
