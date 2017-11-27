@@ -23,10 +23,8 @@
 
 1. 添加依赖或者下载库include
 
-		compile 'com.leo618:StateView:0.0.1'
+		compile 'com.leo618:StateView:0.0.2'
 
-		//AS 3+
-		implementation 'com.leo618:StateView:0.0.1'
 		
 
 2. (可选) 建议在Application的静态代码块中设置视图创建管理器，此处设置的视图将作为全局视图，亦可在代码中调用方法进行设置当前页面所需的视图，不设置使用默认。

@@ -2,8 +2,8 @@ package com.leo618.stateview;
 
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Color;
 import android.provider.Settings;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.FrameLayout;
 
@@ -25,6 +25,7 @@ public class StateViewHelper {
     private volatile int                      mCurrentState;
     private          View.OnClickListener     mOnClickListener;
     private          FrameLayout.LayoutParams mLayoutParams;
+    private int mGravity = Gravity.CENTER;
 
     public StateViewHelper(FrameLayout frameLayout) {
         mRootContainer = frameLayout;
@@ -120,6 +121,22 @@ public class StateViewHelper {
     }
 
     /**
+     * 设置容器背景色
+     */
+    public StateViewHelper setBackgroundColor(int color) {
+        mRootContainer.setBackgroundColor(color);
+        return this;
+    }
+
+    /**
+     * 设置子视图位置
+     */
+    public StateViewHelper setGravity(int gravity) {
+        mGravity = gravity;
+        return this;
+    }
+
+    /**
      * 设置状态视图创建器，可以在Application的静态代码块中进行全应用统一设置
      *
      * @param creator 状态视图创建器
@@ -180,6 +197,7 @@ public class StateViewHelper {
         mRootContainer.removeView(mViewEmpty);
         mRootContainer.removeView(mViewNetError);
         mRootContainer.removeView(mViewError);
+        mLayoutParams.gravity = mGravity;
         switch (mCurrentState) {
             case STATE_NORMAL:
                 break;
@@ -199,7 +217,6 @@ public class StateViewHelper {
     }
 
     private void focusInitItemView(View view) {
-        view.setBackgroundColor(Color.WHITE);
         view.setClickable(true);
     }
 
