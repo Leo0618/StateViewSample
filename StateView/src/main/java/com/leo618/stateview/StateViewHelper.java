@@ -13,13 +13,13 @@ import android.widget.FrameLayout;
  * <p>
  * Created by Leo on 2017/11/23.
  */
-@SuppressWarnings("unused")
+@SuppressWarnings({"unused", "UnusedReturnValue", "WeakerAccess"})
 public class StateViewHelper {
     private static final int STATE_NORMAL   = 1;
-    private static final int STATE_LOADING  = 1 << 1;
-    private static final int STATE_EMPTY    = 1 << 2;
-    private static final int STATE_NETERROR = 1 << 3;
-    private static final int STATE_ERROR    = 1 << 4;
+    private static final int STATE_LOADING  = 1<<1;
+    private static final int STATE_EMPTY    = 1<<2;
+    private static final int STATE_NETERROR = 1<<3;
+    private static final int STATE_ERROR    = 1<<4;
     private          FrameLayout              mRootContainer;
     private          Context                  mContext;
     private volatile int                      mCurrentState;
@@ -51,34 +51,46 @@ public class StateViewHelper {
 
     /**
      * 显示当前状态为：加载中视图
+     *
+     * @return 加载中视图
      */
-    public void stateLoading() {
+    public View stateLoading() {
         mCurrentState = STATE_LOADING;
         notifyStateView();
+        return mViewLoading;
     }
 
     /**
      * 显示当前状态为：无数据空视图
+     *
+     * @return 无数据空视图
      */
-    public void stateEmpty() {
+    public View stateEmpty() {
         mCurrentState = STATE_EMPTY;
         notifyStateView();
+        return mViewEmpty;
     }
 
     /**
      * 显示当前状态为：网络错误视图
+     *
+     * @return 网络错误视图
      */
-    public void stateNetError() {
+    public View stateNetError() {
         mCurrentState = STATE_NETERROR;
         notifyStateView();
+        return mViewNetError;
     }
 
     /**
      * 显示当前状态为：加载出错视图
+     *
+     * @return 加载出错视图
      */
-    public void stateError() {
+    public View stateError() {
         mCurrentState = STATE_ERROR;
         notifyStateView();
+        return mViewError;
     }
 
     /**
@@ -171,24 +183,24 @@ public class StateViewHelper {
     private View mViewLoading, mViewEmpty, mViewNetError, mViewError;
 
     private void notifyStateView() {
-        if (iStateViewCreator == null) {
+        if(iStateViewCreator == null) {
             throw new IllegalArgumentException("StateViewCreator can not be null.");
         }
-        if (mViewLoading == null) {
+        if(mViewLoading == null) {
             mViewLoading = iStateViewCreator.createStateViewLoading(mContext);
             focusInitItemView(mViewLoading);
         }
-        if (mViewEmpty == null) {
+        if(mViewEmpty == null) {
             mViewEmpty = iStateViewCreator.createStateViewEmpty(mContext);
             focusInitItemView(mViewEmpty);
             mViewEmpty.setOnClickListener(mInternalClickListener);
         }
-        if (mViewNetError == null) {
+        if(mViewNetError == null) {
             mViewNetError = iStateViewCreator.createStateViewNetError(mContext);
             focusInitItemView(mViewNetError);
             mViewNetError.setOnClickListener(mNetErrorClickListener);
         }
-        if (mViewError == null) {
+        if(mViewError == null) {
             mViewError = iStateViewCreator.createStateViewError(mContext);
             focusInitItemView(mViewError);
             mViewError.setOnClickListener(mInternalClickListener);
@@ -198,7 +210,7 @@ public class StateViewHelper {
         mRootContainer.removeView(mViewNetError);
         mRootContainer.removeView(mViewError);
         mLayoutParams.gravity = mGravity;
-        switch (mCurrentState) {
+        switch(mCurrentState) {
             case STATE_NORMAL:
                 break;
             case STATE_LOADING:
@@ -224,7 +236,7 @@ public class StateViewHelper {
         @Override
         public void onClick(View v) {
             stateLoading();
-            if (mOnClickListener != null) mOnClickListener.onClick(v);
+            if(mOnClickListener != null) mOnClickListener.onClick(v);
         }
     };
     private View.OnClickListener mNetErrorClickListener = new View.OnClickListener() {

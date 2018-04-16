@@ -23,7 +23,7 @@
 
 1. 添加依赖或者下载库include
 
-		compile 'com.leo618:StateView:0.0.2'
+		implementation 'com.leo618:StateView:0.0.3'
 
 		
 
@@ -56,7 +56,7 @@
 		    }
 		}
 
-3. 在需要使用的页面对应创建Helper实例并调用相应方法，demo可查看[StateActivity](https://github.com/Leo0618/StateViewSample/blob/master/app/src/main/java/com/leo618/stateviewsample/StateActivity.java)
+3. 在需要使用的页面对应创建Helper实例并调用相应方法，方法返回当前视图View，demo可查看[StateActivity](https://github.com/Leo0618/StateViewSample/blob/master/app/src/main/java/com/leo618/stateviewsample/StateActivity.java)
 
 		switch (item.getItemId()) {
             case R.id.stateNormal://显示数据视图

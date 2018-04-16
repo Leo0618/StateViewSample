@@ -24,7 +24,7 @@ public class StateActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_state);
-        FrameLayout container = (FrameLayout) findViewById(R.id.mContainer);
+        FrameLayout container = findViewById(R.id.mContainer);
         mStateViewHelper = new StateViewHelper(container).onReloadClickListener(mClickListener);
         mStateViewHelper.stateLoading();
         requestDatas();
