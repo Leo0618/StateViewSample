@@ -1,4 +1,8 @@
 # StateView #
+
+[ ![Download](https://api.bintray.com/packages/bytehit/maven/StateView/images/download.svg) ](https://bintray.com/bytehit/maven/StateView/_latestVersion)
+
+
 几种状态视图显示工具，包含如下视图控制:
 
 
@@ -23,7 +27,7 @@
 
 1. 添加依赖或者下载库include
 
-		implementation 'com.leo618:StateView:0.0.3'
+		implementation 'com.leo618:StateView:0.0.4'
 
 		
 

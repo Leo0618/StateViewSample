@@ -235,8 +235,10 @@ public class StateViewHelper {
     private View.OnClickListener mInternalClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            stateLoading();
-            if(mOnClickListener != null) mOnClickListener.onClick(v);
+            if(mOnClickListener != null) {
+                stateLoading();
+                mOnClickListener.onClick(v);
+            }
         }
     };
     private View.OnClickListener mNetErrorClickListener = new View.OnClickListener() {
